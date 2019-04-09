@@ -3,8 +3,10 @@ package khoapham.ptp.phamtanphat.freakingmath1903;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -20,8 +22,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         anhxa();
         getrandom();
+        sukien();
 
+    }
 
+    private void sukien() {
+        imgDung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (check){
+                    Toast.makeText(MainActivity.this, "Chinh xac", Toast.LENGTH_SHORT).show();
+                    getrandom();
+                }else{
+                    Toast.makeText(MainActivity.this, "Sai roi!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        imgSai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (check == false){
+                    Toast.makeText(MainActivity.this, "Chinh xac", Toast.LENGTH_SHORT).show();
+                    getrandom();
+                }else{
+                    Toast.makeText(MainActivity.this, "Sai roi!!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void getrandom() {
