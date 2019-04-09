@@ -2,6 +2,7 @@ package khoapham.ptp.phamtanphat.freakingmath1903;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -12,15 +13,22 @@ public class MainActivity extends AppCompatActivity {
     TextView txtSothu1,txtSothu2,txtPheptoan,txtKetqua;
     ImageButton imgDung,imgSai;
     int ketqua = 0;
+    boolean check;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         anhxa();
+        getrandom();
 
+
+    }
+
+    private void getrandom() {
         Random random = new Random();
         int sth1 = random.nextInt(9) + 1;
         int sth2 = random.nextInt(9) + 1;
+        check = random.nextBoolean();
 
         int indexpheptinh = random.nextInt(4);
 
@@ -38,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 txtPheptoan.setText(" / ");
                 break;
         }
+        ketqua = check ? ketqua : ketqua+ random.nextInt(5) + 1;
         txtSothu1.setText(sth1 + "");
         txtSothu2.setText(sth2 + "");
         txtKetqua.setText(" = " + ketqua);
